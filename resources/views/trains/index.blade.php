@@ -4,9 +4,9 @@
 
 @section('content')
     <div class="container">
-        <h1>Today's trains</h1>
+        <h1>Treni in partenza</h1>
         <ul>
-            @foreach ($trains as $train)
+            @forelse ($trains as $train)
                 <li>ID treno: {{ $train->id }}</li>
                 <ul>
                     <li>Azienda: {{ $train->company }}</li>
@@ -31,7 +31,9 @@
                         @endif
                     </li>
                 </ul>
-            @endforeach
+            @empty
+                <li>Non ci sono treni in partenza.</li>
+            @endforelse
         </ul>
     </div>
 @endsection
